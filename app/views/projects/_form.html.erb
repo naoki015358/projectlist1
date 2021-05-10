@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-6">
+    <%= form_with(model: project, local: true) do |f| %>
+      <% if project.errors.any? %>
+        <div id="error_explanation" class="alert alert-warning">
+          <ul>
+            <% project.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      
+    <div class="form-group">
+      <%= f.label :product, '製品' %>
+      <%= f.text_field :product, class: 'form-control' %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :status, 'ステータス' %>
+      <%= f.text_field :status, class: 'form-control' %>
+    </div>
+    
+      <%= f.submit '製品登録', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

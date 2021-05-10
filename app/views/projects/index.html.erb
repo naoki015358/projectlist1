@@ -1,0 +1,26 @@
+<h1>製品・ステータス状況一覧</h1>
+
+<% if @projects.any? %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>製品名</th>
+        <th>ステータス</th>
+      </tr>
+    </thead>
+    <tbody>
+     <% @projects.each do |project| %>
+     <tr>
+       <td><%= link_to project.product, project %></td>
+       <td><%= project.status %></td>
+     </tr>
+     <% end %>
+    </tbody>
+  </table>
+  <div>
+    
+  </div>
+<%= link_to '新規製品の登録', new_project_path,  class: "btn btn-primary" %>
+
+<% end %>
+

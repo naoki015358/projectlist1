@@ -1,0 +1,19 @@
+<h1>製品詳細ページ</h1>
+
+<table class="table table-bordered">
+   
+    <tr>
+        <th>製品</th>
+        <td><%= @project.product %></td>
+    </tr>
+    
+    <tr>
+        <th>ステータス</th>
+        <td><%= @project.status %></td>
+    </tr>
+</table>
+
+
+
+<%= link_to 'この製品を編集する', edit_project_path(@project), class: 'btn btn-light' %>
+<%= link_to 'この製品を削除する', @project, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>
