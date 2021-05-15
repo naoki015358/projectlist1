@@ -18,7 +18,8 @@
     
     <div class="form-group">
       <%= f.label :status, 'ステータス' %>
-      <%= f.text_field :status, class: 'form-control' %>
+      <%= f.select :status,[["完了", "完了"], ["未着手", "未着手"], ["作業中", "作業中"], ["品質異常", "品質異常"]], include_blank: "選択して下さい" %>
+      
     </div>
     
       <%= f.submit '製品登録', class: 'btn btn-primary' %>
