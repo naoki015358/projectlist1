@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
   end
   
   def counts(user)
-    @count_projectlists = user.projects.count
+    @count_projects = user.projects.count
   end
 end
