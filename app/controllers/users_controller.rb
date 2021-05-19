@@ -28,28 +28,28 @@ class UsersController < ApplicationController
   
   def completes
      @user = User.find(params[:id])
-     @projects = @user
+     @projects = @user.projects.page(params[:page])
      @projects = @projects.where(status: '完了')
      
   end
   
   def incompletes
      @user = User.find(params[:id])
-     @projects = @user
+     @projects = @user.projects.page(params[:page])
      @projects = @projects.where(status: '未着手')
      
   end
   
   def works
      @user = User.find(params[:id])
-     @projects = @user
+     @projects = @user.projects.page(params[:page])
      @projects = @projects.where(status: '作業中')
      
   end
   
   def abnormals
      @user = User.find(params[:id])
-     @projects = @user
+     @projects = @user.projects.page(params[:page])
      @projects = @projects.where(status: '品質異常')
      
   end
