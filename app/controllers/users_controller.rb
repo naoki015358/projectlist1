@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
   
   def index
-      @users = User.order(id: :desc).page(params[:page]).per(25)
+      @users = User
   end
 
   def show
      @user = User.find(params[:id])
-     @projects = @user.projects.order(id: :desc).page(params[:page])
+     @projects = @user.projects
      
   end
 
@@ -28,28 +28,28 @@ class UsersController < ApplicationController
   
   def completes
      @user = User.find(params[:id])
-     @projects = @user.projects.order(id: :desc).page(params[:page])
+     @projects = @user
      @projects = @projects.where(status: '完了')
      
   end
   
   def incompletes
      @user = User.find(params[:id])
-     @projects = @user.projects.order(id: :desc).page(params[:page])
+     @projects = @user
      @projects = @projects.where(status: '未着手')
      
   end
   
   def works
      @user = User.find(params[:id])
-     @projects = @user.projects.order(id: :desc).page(params[:page])
+     @projects = @user
      @projects = @projects.where(status: '作業中')
      
   end
   
   def abnormals
      @user = User.find(params[:id])
-     @projects = @user.projects.order(id: :desc).page(params[:page])
+     @projects = @user
      @projects = @projects.where(status: '品質異常')
      
   end
