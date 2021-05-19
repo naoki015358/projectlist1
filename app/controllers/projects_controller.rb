@@ -51,6 +51,8 @@ class ProjectsController < ApplicationController
         flash[:success] = '製品は正常に削除されました'
         redirect_to projects_url
     end
+    
+  
       
     private
     

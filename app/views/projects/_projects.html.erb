@@ -1,0 +1,18 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>製品名</th>
+        <th>ステータス</th>
+      </tr>
+    </thead>
+    <tbody>
+     <% @projects.each do |project| %>
+     <tr>
+       <td><%= link_to project.product, project %></td>
+       <td><%= project.status %></td>
+     </tr>
+     <% end %>
+    </tbody>
+</table>
+  </div>
+</div>
