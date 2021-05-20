@@ -1,7 +1,7 @@
 <ul class="nav nav-tabs nav-justified mb-3">
-      <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">Projectlists </a></li>
-      <li class="nav-item"><a href="<%= completes_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(completes_user_path(@user)) %>">完了 </a></li>
-      <li class="nav-item"><a href="<%= incompletes_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(incompletes_user_path(@user)) %>">未着手 </a></li>
+      <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">進行状況 </a></li>
       <li class="nav-item"><a href="<%= works_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(works_user_path(@user)) %>">作業中 </a></li>
+      <li class="nav-item"><a href="<%= incompletes_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(incompletes_user_path(@user)) %>">未完了 </a></li>
+      <li class="nav-item"><a href="<%= completes_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(completes_user_path(@user)) %>">完了 </a></li>
       <li class="nav-item"><a href="<%= abnormals_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(abnormals_user_path(@user)) %>">品質異常 </a></li>
 </ul>

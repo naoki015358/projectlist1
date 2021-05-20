@@ -10,8 +10,8 @@
       <ul class="navbar-nav">
         <% if logged_in? %>
         <li class="nav-item"><%= link_to  '新規製品の登録', new_project_path, class: 'nav-link' %></li>
-        <li class="nav-item"><%= link_to '進行状況', user_path(current_user) , class: 'nav-link' %></li>
-        <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+        <li class="nav-item"><%= link_to '進行状況（項目別）', user_path(current_user) , class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to 'ログアウト', logout_path, method: :delete ,class: 'nav-link'%></li>
         
             </ul>
         <% else %>

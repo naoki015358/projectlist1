@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   def incompletes
      @user = User.find(params[:id])
      @projects = @user.projects.page(params[:page])
-     @projects = @projects.where(status: '未着手')
+     @projects = @projects.where(status: '未完了')
      
   end
   
