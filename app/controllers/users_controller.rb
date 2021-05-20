@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   
+  before_action :require_user_logged_in
+　before_action :correct_user, only: [:show, :completes, :incompletes, :works, :abnormals]
+  
   def index
       @users = User
   end
