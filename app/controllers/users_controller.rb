@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   
-  before_action :require_user_logged_in
-　before_action :correct_user, only: [:show, :completes, :incompletes, :works, :abnormals]
+  before_action :require_user_logged_in, only: [:index, :show, :completes, :incompletes, :works, :abnormals]
   
   def index
       @users = User
@@ -60,6 +59,8 @@ class UsersController < ApplicationController
   
   
   private
+  
+  
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
