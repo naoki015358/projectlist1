@@ -1,15 +1,19 @@
 class UsersController < ApplicationController
   
   before_action :require_user_logged_in, only: [:index, :show, :completes, :incompletes, :works, :abnormals]
-  
+ 
   def index
       @users = User
   end
 
   def show
      @user = User.find(params[:id])
-     @projects = @user.projects
-     
+     @projects = current_user.projects
+      
+  if @user == current_user
+  else
+    redirect_to user_path(current_user.id)
+  end
   end
 
   def new
@@ -56,12 +60,13 @@ class UsersController < ApplicationController
      
   end
   
-  
+ 
+
   
   private
   
-  
-
+   
+   
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
