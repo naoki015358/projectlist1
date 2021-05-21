@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  
+  before_action :ensure_current_user, {only: [:index, :show, :completes, :incompletes, :works, :abnormals]}
   before_action :require_user_logged_in, only: [:index, :show, :completes, :incompletes, :works, :abnormals]
+  
  
   def index
       @users = User
@@ -9,12 +10,8 @@ class UsersController < ApplicationController
   def show
      @user = User.find(params[:id])
      @projects = current_user.projects
+  end
       
-  if @user == current_user
-  else
-    redirect_to user_path(current_user.id)
-  end
-  end
 
   def new
     @user = User.new
@@ -60,12 +57,19 @@ class UsersController < ApplicationController
      
   end
   
- 
+
 
   
   private
   
-   
+def ensure_current_user
+  @current_user = User.find_by(id: session[:user_id])
+  if @current_user.id != params[:id].to_i
+    flash[:notice]="権限がありません"
+    redirect_to("/login")
+  end
+end
+  
    
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
